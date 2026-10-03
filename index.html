@@ -158,6 +158,34 @@ section{padding:96px 0;box-shadow:inset 0 1px 0 var(--rasante)}
 footer{padding:30px 0 40px;box-shadow:inset 0 1px 0 var(--rasante);font-size:12px;color:var(--faible)}
 footer .page{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
+
+/* ── DEUX CHARTES — 03/10/2026 ──────────────────────────────────────────────
+   IFC (conseil, sous-traitance ERP, développement) : fond blanc, texte bleu.
+   METACUBE garde la nuit bleue : sa section est une bande sombre pleine
+   largeur, où le ciel étoilé reste visible. Les composants lisent les mêmes
+   jetons ; .clair les redéfinit. */
+.clair{--fond:#FFFFFF; --panneau:#F3F6FC; --arete:#1543AC; --vive:#2F62D8; --violet-clair:#6115AC;
+  --rasante:rgba(21,67,172,.12); --texte:#22385F; --clair:#0B2E7A; --faible:#5F7396; --lien:#1543AC;
+  color:var(--texte)}
+/* Pleine largeur : le fond déborde de la colonne de 1180 px jusqu'aux bords. */
+.pleine{position:relative;background:var(--fond);box-shadow:0 0 0 100vmax var(--fond);clip-path:inset(0 -100vmax)}
+section.pleine{box-shadow:0 0 0 100vmax var(--fond),inset 0 1px 0 var(--rasante)}
+header.clair{background:rgba(255,255,255,.92);box-shadow:inset 0 -1px 0 var(--rasante)}
+.clair .marque img{border-radius:50%}
+.clair nav a:hover{color:var(--arete);text-shadow:none;box-shadow:inset 0 -1px 0 var(--arete)}
+.clair nav a::after{background:linear-gradient(104deg,transparent 32%,rgba(21,67,172,.12) 47%,transparent 74%)}
+.ouverture.clair h1 span{color:var(--arete)}
+.clair .carte{border-color:rgba(21,67,172,.22)}
+.clair .pole{background:var(--panneau);border-color:rgba(21,67,172,.22)}
+.clair .pole li{box-shadow:inset 0 -1px 0 rgba(21,67,172,.10)}
+.clair .badge{background:rgba(97,21,172,.07);border-color:rgba(97,21,172,.35)}
+.clair .bouton{box-shadow:inset 2px 0 0 var(--vive)}
+.clair .bouton:hover{box-shadow:inset 2px 0 0 var(--vive),0 0 14px rgba(21,67,172,.18)}
+footer.clair{background:#fff}
+/* La bande METACUBE : sombre, le ciel passe à travers. */
+#metacube{box-shadow:inset 0 1px 0 var(--rasante)}
+
+.trait{padding-bottom:2px;border-bottom:1px solid var(--vive);color:var(--clair)}
 /* apparition au défilement */
 .monte{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .monte.vu{opacity:1;transform:none}
@@ -183,7 +211,7 @@ footer .page{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <body>
 <canvas id="ciel" aria-hidden="true"></canvas>
 
-<header>
+<header class="clair">
   <div class="page">
     <a class="marque" href="#"><img src="img/ifc_embleme.png" alt=""><b>IFC</b></a>
     <nav><a href="#metacube">METACUBE</a><a href="#services">Services</a><a href="#methode">Méthode</a><a href="#contact">Contact</a></nav>
@@ -192,7 +220,7 @@ footer .page{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <main class="page">
 
-  <div class="ouverture">
+  <div class="ouverture clair pleine">
     <div>
       <div class="caps">Informatique Finance Conseil</div>
       <h1>Conseil, développement et intelligence artificielle <span>pour la fonction finance.</span></h1>
@@ -216,6 +244,7 @@ footer .page{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div>
         <p class="formule">Sage 100 s'arrête au FEC.<br>METACUBE commence au FEC.</p>
         <p>METACUBE lit la comptabilité de toutes les sociétés d'un groupe, la comprend, en vérifie la cohérence, termine le travail que les logiciels comptables laissent à la main, et restitue au directeur financier des vues qui changent la question qu'il se pose.</p>
+        <p>Il confronte chaque comptabilité à la plateforme agréée de son entité, en émission comme en réception, et restitue à chaque filiale ses écritures au format de son ERP : 29 logiciels, de Sage à SAP, en passant par Cegid, Pennylane, Odoo ou Dynamics. Les filiales étrangères, hors du champ de la facture électronique française, sont rapprochées par l'e-reporting de transaction de leurs sœurs françaises, confronté à leur reporting groupe.</p>
         <p>Il part du Fichier des Écritures Comptables, le seul format commun à toutes les comptabilités françaises. Il ne remplace pas le logiciel comptable : il travaille sur ce qu'il a produit, sans jamais y écrire. Il prépare et fiabilise la consolidation, et s'adapte à chaque dossier au lieu de supposer un profil type.</p>
       </div>
       <div class="video">
@@ -242,8 +271,8 @@ footer .page{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <div class="forces monte">
       <div class="force"><b>98 %</b><span>des lignes lettrées sur un dossier réel, contre 56,6 % dans le dossier d'origine tenu par un cabinet.</span></div>
       <div class="force"><b>0</b><span>fausse alerte sur les doublons de tiers, et 99 % des variantes retrouvées.</span></div>
-      <div class="force"><b>Lecture seule</b><span>Il lit un FEC et produit des fichiers : il n'écrit jamais dans la comptabilité.</span></div>
-      <div class="force"><b>À la voix</b><span>Il se pilote en conversation et explique ses fonctionnalités sur demande. Pas de formation.</span></div>
+      <div class="force"><b>Lecture seule</b><span>Il lit un FEC et produit des fichiers : <span class="trait">il n'écrit jamais dans la comptabilité</span>.</span></div>
+      <div class="force"><b>À la voix</b><span>Il se pilote en conversation et explique ses fonctionnalités sur demande. <span class="trait">Pas de formation.</span></span></div>
     </div>
 
     <div class="assistant monte">
@@ -259,7 +288,7 @@ footer .page{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <p class="pour">Pour <strong>les groupes et ETI</strong> qui consolident sans service dédié, <strong>les cabinets</strong> qui reçoivent des FEC de toutes provenances, et <strong>les directeurs financiers</strong> qui veulent décider, pas seulement lire.</p>
   </section>
 
-  <section id="services">
+  <section id="services" class="clair pleine">
     <div class="titre"><h2>Services</h2><hr></div>
     <p class="chapeau">IFC met au service des équipes finance ce qu'elle a appris en construisant METACUBE : la comptabilité vue de l'intérieur, le code, et l'intelligence artificielle appliquée.</p>
     <div class="poles">
@@ -285,7 +314,7 @@ footer .page{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     </div>
   </section>
 
-  <section id="methode">
+  <section id="methode" class="clair pleine">
     <div class="titre"><h2>Méthode</h2><hr></div>
     <p class="chapeau">Les principes de METACUBE sont aussi ceux d'IFC en mission.</p>
     <div class="principes">
@@ -296,12 +325,12 @@ footer .page{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="clair pleine">
     <div class="titre"><h2>Contact</h2><hr></div>
     <div class="fondateur">
       <div class="monte">
         <div class="qui"><b>Aurélien Touchefeu</b>Fondateur d'IFC, concepteur de METACUBE</div>
-        <p style="margin-top:22px;max-width:520px">Passé par l'expertise comptable, consultant certifié Sage 100, il a fondé IFC en 2024 pour réunir la comptabilité, le développement et l'intelligence artificielle au service des équipes finance.</p>
+        <p style="margin-top:22px;max-width:520px">Passé par les cabinets d'expertise comptable et de commissariat aux comptes, et par des entreprises de la PME au grand groupe, consultant certifié Sage 100 : il parle la langue des financiers par expérience. Il a fondé IFC en 2024 pour mettre le métier au service du métier, adossé à des décennies de développement.</p>
       </div>
       <div class="coord monte">
         <a href="mailto:aurelien.touchefeu@ifc-pro.fr">aurelien.touchefeu@ifc-pro.fr</a><br>
@@ -314,7 +343,7 @@ footer .page{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 </main>
 
-<footer>
+<footer class="clair">
   <div class="page">
     <span>IFC — Informatique Finance Conseil · SASU au capital de 2 000 € · RCS Rennes 983 987 280</span>
     <span><a class="linkedin" href="https://www.linkedin.com/in/aurelien-touchefeu" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a> · METACUBE est une marque d'IFC · <a href="mentions-legales.html">Mentions légales</a> · © 2026</span>
