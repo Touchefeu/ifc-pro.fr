@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-label="Logo intégrateur : une carte de paiement en orbite autour d'un noyau lumineux">
+<svg xmlns="http://www.w3.org/2000/svg" width="384" height="384" viewBox="16 16 448 448" role="img" aria-label="Logo intégrateur : une carte de paiement en orbite autour d'un noyau lumineux">
 <defs>
 <radialGradient id="stripe3-h" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#5a5cff" stop-opacity="0.4"></stop><stop offset="55%" stop-color="#2a2a8e" stop-opacity="0.14"></stop><stop offset="100%" stop-color="#070b18" stop-opacity="0"></stop></radialGradient>
 <radialGradient id="stripe3-c" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ffffff"></stop><stop offset="35%" stop-color="#d6d8ff" stop-opacity="0.9"></stop><stop offset="72%" stop-color="#6a6bff" stop-opacity="0.3"></stop><stop offset="100%" stop-color="#6a6bff" stop-opacity="0"></stop></radialGradient>
@@ -11,17 +11,17 @@
 <rect width="480" height="480" fill="#070b18"></rect>
 <g fill="#a9b4ff" opacity="0.55"><circle cx="60" cy="58" r="1"></circle><circle cx="420" cy="70" r="1.1"></circle><circle cx="452" cy="330" r="0.9"></circle><circle cx="34" cy="300" r="0.8"></circle><circle cx="360" cy="452" r="1"></circle><circle cx="120" cy="440" r="0.8"></circle></g>
 <circle cx="240" cy="240" r="215" fill="url(#stripe3-h)"></circle>
-<circle cx="240" cy="240" r="200" fill="none" stroke="#2f2f74" stroke-width="1" opacity="0.7"></circle>
-<ellipse cx="240" cy="240" rx="150" ry="44" fill="none" stroke="#7a6bff" stroke-width="0.8" opacity="0.45" transform="rotate(55 240 240)"></ellipse>
+<circle cx="240" cy="240" r="200" fill="none" stroke="#2f2f74" stroke-width="3.2" opacity="0.7"></circle>
+<ellipse cx="240" cy="240" rx="150" ry="44" fill="none" stroke="#7a6bff" stroke-width="3" opacity="0.45" transform="rotate(55 240 240)"></ellipse>
 <g transform="rotate(-15 240 240)">
-<ellipse cx="240" cy="240" rx="170" ry="56" fill="none" stroke="url(#stripe3-o)" stroke-width="1.4"></ellipse>
+<ellipse cx="240" cy="240" rx="170" ry="56" fill="none" stroke="url(#stripe3-o)" stroke-width="4.48"></ellipse>
 <circle cx="70" cy="240" r="9" fill="url(#stripe3-s)"></circle><circle cx="70" cy="240" r="2.4" fill="#ffffff"></circle>
 </g>
 <circle cx="240" cy="240" r="62" fill="url(#stripe3-c)"></circle>
 <g transform="rotate(-15 240 240) translate(410 240) rotate(-8)">
-<rect x="-34" y="-22" width="68" height="44" rx="6" fill="url(#stripe3-card)" stroke="url(#stripe3-edge)" stroke-width="1.3"></rect>
-<rect x="-24" y="-10" width="12" height="9" rx="2" fill="none" stroke="#e6f6ff" stroke-width="1"></rect>
-<line x1="-24" y1="10" x2="20" y2="10" stroke="#e6f6ff" stroke-width="1" stroke-linecap="round" opacity="0.8"></line>
-<line x1="-30" y1="-19" x2="10" y2="-19" stroke="#ffffff" stroke-width="1" opacity="0.5"></line>
+<rect x="-34" y="-22" width="68" height="44" rx="6" fill="url(#stripe3-card)" stroke="url(#stripe3-edge)" stroke-width="4.16"></rect>
+<rect x="-24" y="-10" width="12" height="9" rx="2" fill="none" stroke="#e6f6ff" stroke-width="3.2"></rect>
+<line x1="-24" y1="10" x2="20" y2="10" stroke="#e6f6ff" stroke-width="3.2" stroke-linecap="round" opacity="0.8"></line>
+<line x1="-30" y1="-19" x2="10" y2="-19" stroke="#ffffff" stroke-width="3.2" opacity="0.5"></line>
 </g>
 </svg>

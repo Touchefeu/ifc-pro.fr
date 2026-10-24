@@ -375,5 +375,5 @@ body:not(.clair) .volte .verso{background:#123C9C;border-color:var(--vive)}/* L'
    dans une pastille sombre, comme l'emblème d'IFC. */
 .outil-tete{display:flex;align-items:center;gap:20px;margin-bottom:18px}
 .outil-tete .caps{margin:0}
-.logo-outil{flex:none;width:104px;height:104px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#12204a 0%,#05070f 72%);
+.logo-outil{flex:none;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#12204a 0%,#05070f 72%);
   box-shadow:0 0 0 1px rgba(21,67,172,.35),0 10px 26px rgba(5,7,15,.25)}
