@@ -264,3 +264,21 @@ body:not(.clair) .volte .verso{background:#123C9C;border-color:var(--vive)}/* L'
 /* L'assistant en haut à gauche, au-dessus du texte (Aurélien, 24/10). */
 .produit .volte.assistant{margin-bottom:26px}
 .produit{align-items:start}
+
+/* L'assistant dans la marge de gauche, sur les grands écrans : là où la page
+   laisse un vide, du haut vers le bas, fixe pendant le défilement (Aurélien,
+   24/10, sur sa copie d'écran annotée). Tout son texte y tient : il ne se
+   retourne plus, recto et verso se lisent l'un sous l'autre. Sous 1 700 px,
+   il reste en haut de la colonne de gauche. */
+@media (min-width:1700px){
+  .produit .volte.assistant{position:fixed;z-index:5;left:32px;top:96px;
+    width:min(560px,calc((100vw - 1180px) / 2 - 64px));max-height:calc(100vh - 140px);overflow:auto;margin:0}
+  .volte.assistant .volte-int{transform:none !important;display:block}
+  .volte.assistant .face{-webkit-backface-visibility:visible;backface-visibility:visible}
+  .volte.assistant .recto{grid-template-columns:1fr;justify-items:center;text-align:center;border-bottom:0;box-shadow:inset 2px 0 0 var(--vive)}
+  .volte.assistant .recto .apprend{text-align:left}
+  .volte.assistant .presence{width:150px;height:150px}
+  .volte.assistant .verso{transform:none;background:var(--panneau);border-color:var(--arete);border-top:0}
+  .volte.assistant .verso p{color:var(--texte)}
+  body:not(.clair) .volte.assistant .verso{background:var(--panneau);border-color:var(--arete)}
+}
