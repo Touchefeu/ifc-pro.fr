@@ -143,9 +143,20 @@
     cv.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;' +
       'z-index:20;background:transparent';
     document.body.appendChild(cv);
+    /* LA PROFONDEUR (Aurélien, 24/10/2026 : « elle se contente d'être au premier
+       plan ») : une seconde toile, sous le contenu de la page. Quand la sphère
+       s'enfonce, elle rapetisse, pâlit, et passe sur cette toile-là : le texte
+       et les encadrés la couvrent, elle est derrière eux. Elle revient devant
+       en remontant. Le geste des vidéos, où elle tourne derrière le cube. */
+    var fond = document.createElement('canvas');
+    fond.setAttribute('aria-hidden', 'true');
+    fond.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;' +
+      'z-index:-1;background:transparent';
+    document.body.insertBefore(fond, document.body.firstChild.nextSibling);
+    var SEUIL_DERRIERE = 0.55;
 
     var corps = new Corps('repos'), t = 0, dernier = 0, R = 30;
-    var pos = { x: innerWidth - 110, y: innerHeight - 110, vx: 0, vy: 0 };
+    var pos = { x: innerWidth - 110, y: innerHeight - 110, z: 0, vx: 0, vy: 0 };
     var vol = null;                    // le trajet vers une rubrique, s'il y en a un
 
     function borner() {
@@ -172,11 +183,45 @@
       });
     });
 
+    /* IL RÉPOND QUAND ON LE DÉSIGNE (Aurélien, 24/10/2026). La souris sur
+       l'encadré « L'assistant » : il quitte sa dérive, vient se poser au bord
+       de l'encadré et l'écoute tant que la souris y reste. Elle s'en va : il
+       réfléchit, retourne à sa place et se rendort. */
+    var pose = null;                   // le point où il se tient, s'il est appelé
+    function maison() { return [innerWidth - 110, innerHeight - 110]; }
+    function aller(point, enVol, enArrivant) {
+      if (calme) { pose = point === maison ? null : point; corps.vise = enArrivant; return; }
+      vol = { t: 0, T: 0.9, x0: pos.x, y0: pos.y, point: point, arrivee: enArrivant };
+      pose = null; corps.vise = enVol;
+    }
+    document.querySelectorAll('.volte.assistant').forEach(function (encadre) {
+      function bord() {
+        var r = encadre.getBoundingClientRect();
+        var x = r.right + 56 < innerWidth - 40 ? r.right + 56 : r.left - 56;
+        return [x, Math.max(130, Math.min(innerHeight - 80, r.top + 90))];
+      }
+      encadre.addEventListener('pointerenter', function () { aller(bord, 'reflexion', 'ecoute'); });
+      encadre.addEventListener('pointerleave', function () { aller(maison, 'reflexion', 'repos'); });
+    });
+
     function image(ms) {
       var dt = Math.min(0.05, (ms - (dernier || ms)) / 1000); dernier = ms; t += dt;
       corps.avancer(dt);
 
-      if (vol) {
+      if (vol && vol.point) {
+        // Un trajet vers un point (l'encadré, ou sa place) : la même courbe.
+        vol.t += dt;
+        var v = Math.min(1, vol.t / vol.T), ve = douceur(v), q = vol.point();
+        var mx = (vol.x0 + q[0]) / 2, my = Math.min(vol.y0, q[1]) - 50, w2 = 1 - ve;
+        pos.x = w2 * w2 * vol.x0 + 2 * w2 * ve * mx + ve * ve * q[0];
+        pos.y = w2 * w2 * vol.y0 + 2 * w2 * ve * my + ve * ve * q[1];
+        if (v >= 1) { corps.vise = vol.arrivee; pose = vol.point === maison ? null : vol.point; vol = null; }
+      } else if (pose) {
+        // Il se tient au bord de l'encadré, et le suit si la page bouge.
+        var p = pose();
+        pos.x += (p[0] + Math.sin(t * 1.3) * 4 - pos.x) * Math.min(1, dt * 6);
+        pos.y += (p[1] + Math.cos(t * 1.1) * 3 - pos.y) * Math.min(1, dt * 6);
+      } else if (vol) {
         vol.t += dt;
         var u = Math.min(1, vol.t / vol.T), ue = douceur(u);
         var titre = vol.cible.querySelector('h2') || vol.cible;
@@ -201,8 +246,23 @@
         borner();
       }
 
-      var cx = ajuster(cv, innerWidth, innerHeight);
-      sphere(cx, pos.x, pos.y, R * (1 + Math.sin(t * 2.1) * corps.m.souffle), corps.m, t, corps.rot);
+      // La profondeur visée : elle s'enfonce au milieu d'un trajet, se tient
+      // devant quand elle est appelée, et sa dérive la promène lentement
+      // d'avant en arrière.
+      var zVise;
+      if (vol) {
+        var uu = Math.min(1, vol.t / vol.T);
+        zVise = Math.sin(Math.PI * uu) * 1.15;
+      } else if (pose) zVise = 0;
+      else zVise = calme ? 0 : 0.42 + 0.42 * Math.sin(t * 0.11);
+      pos.z += (zVise - pos.z) * Math.min(1, dt * (vol ? 9 : 1.5));
+
+      var k = 1 / (1 + pos.z * 0.9), m = {};
+      for (var c in corps.m) m[c] = corps.m[c];
+      m.a *= 1 - pos.z * 0.3; m.halo *= 1 - pos.z * 0.4;
+      var derriere = pos.z > SEUIL_DERRIERE;
+      var cxAvant = ajuster(cv, innerWidth, innerHeight), cxFond = ajuster(fond, innerWidth, innerHeight);
+      sphere(derriere ? cxFond : cxAvant, pos.x, pos.y, R * k * (1 + Math.sin(t * 2.1) * corps.m.souffle), m, t, corps.rot);
       requestAnimationFrame(image);
     }
     addEventListener('resize', borner);
