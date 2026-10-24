@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Où vont vos données — IFC</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<meta name="description" content="METACUBE tourne chez vous : vos FEC et vos pièces ne quittent pas votre poste. Ce qui sort, vers qui, et seulement quand vous le demandez.">
+<link rel="stylesheet" href="site.css">
+<style>
+.flux{width:100%;border-collapse:collapse;margin:8px 0 0;font-size:14.5px}
+.flux th,.flux td{padding:14px 16px;text-align:center;vertical-align:middle;border-bottom:1px solid var(--rasante)}
+.flux th{font-weight:500;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--faible)}
+.flux td:first-child{color:var(--clair)}
+.jamais{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--arete)}
+.jamais li{padding:24px 22px;background:var(--panneau);font-size:14.5px}
+.jamais b{display:block;margin-bottom:6px;font-weight:500;font-size:17px;color:var(--clair)}
+.bloc{margin-top:64px}
+.bloc h3{margin:0 0 18px;font-weight:500;font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--clair)}
+@media (max-width:820px){.jamais{grid-template-columns:1fr}.flux th,.flux td{padding:10px 8px}}
+</style>
+</head>
+<body>
+<canvas id="ciel" aria-hidden="true"></canvas>
+
+<header>
+  <div class="page">
+    <a class="marque" href="index.html"><img src="img/ifc_embleme.png" alt=""><b>IFC</b></a>
+    <nav><a href="metacube.html">METACUBE</a><a href="outils.html">Outils</a><a href="services.html">Services</a><a href="methode.html">Méthode</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+
+<main class="page seule">
+  <section>
+    <div class="titre"><h2>Où vont vos données</h2><hr></div>
+    <p class="chapeau">METACUBE tourne chez vous, sur votre poste ou votre serveur. Vos FEC, vos pièces et tout ce que le moteur en établit y restent. IFC n'y a pas accès et ne reçoit rien.</p>
+
+    <div class="bloc">
+      <h3>Ce qui reste chez vous</h3>
+      <div class="fonctions">
+        <div class="carte"><span class="n">01</span><h3>Vos comptabilités</h3><p>Les FEC de chaque société, leurs plans de comptes, leurs journaux : lus et rangés dans une base installée sur votre machine.</p></div>
+        <div class="carte"><span class="n">02</span><h3>Vos pièces</h3><p>Factures, relevés de compte, organigramme, table des tiers : déposés, lus et conservés sur place.</p></div>
+        <div class="carte"><span class="n">03</span><h3>Ce que le moteur établit</h3><p>Contrôles, harmonisations, lettrages, propositions d'écritures, et chacun de vos arbitrages : tout est écrit dans votre base.</p></div>
+        <div class="carte"><span class="n">04</span><h3>Votre voix</h3><p>La parole est transcrite sur votre machine. Aucun enregistrement ne part.</p></div>
+      </div>
+    </div>
+
+    <div class="bloc">
+      <h3>Ce qui sort, <span class="trait">et seulement quand vous le demandez</span></h3>
+      <table class="flux">
+        <thead><tr><th>Vers</th><th>Ce qui part</th><th>Pour quoi faire</th></tr></thead>
+        <tbody>
+          <tr><td>Registres publics<br>(Annuaire des entreprises, INSEE, BODACC, INPI, VIES)</td><td>un numéro SIREN, un numéro de TVA ou une dénomination, jamais une écriture</td><td>vérifier qu'un tiers existe et qui il est</td></tr>
+          <tr><td>La plateforme agréée de chacune de vos sociétés</td><td>l'accès à votre propre compte, que vous lui confiez</td><td>y lire vos factures électroniques et leurs statuts</td></tr>
+          <tr><td>Votre messagerie, si vous donnez une adresse à METACUBE</td><td>ses réponses, envoyées par votre serveur de mail, aux seules personnes que vous autorisez</td><td>lui écrire de loin et recevoir sa réponse</td></tr>
+          <tr><td>L'assistant, en mode connecté</td><td>votre question et les éléments que le moteur lui transmet pour y répondre, jamais un FEC entier</td><td>comprendre la demande et la formuler ; en mode local, rien ne sort</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bloc">
+      <h3>Ce que METACUBE ne fait jamais</h3>
+      <ul class="jamais">
+        <li><b>Écrire dans vos comptes</b>Il lit vos FEC et produit des fichiers ; c'est vous qui les importez dans votre ERP.</li>
+        <li><b>Envoyer un FEC</b>Aucun fichier comptable ne quitte la machine sur laquelle il est installé.</li>
+        <li><b>Rendre compte à IFC</b>Ni mesure d'usage, ni statistique, ni copie de vos données vers l'éditeur.</li>
+      </ul>
+    </div>
+
+    <div class="bloc">
+      <h3>Une question</h3>
+      <p>Votre DSI ou votre délégué à la protection des données veut le détail d'un flux : écrivez à <a href="mailto:aurelien.touchefeu@ifc-pro.fr">aurelien.touchefeu@ifc-pro.fr</a>. Pour ce site lui-même, voir les <a href="mentions-legales.html">mentions légales</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="page">
+    <span>IFC — Informatique Finance Conseil · SASU au capital de 2 000 € · RCS Rennes 983 987 280</span>
+    <span>METACUBE est une marque d'IFC · <a href="donnees.html">Où vont vos données</a> · <a href="mentions-legales.html">Mentions légales</a> · © 2026</span>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
