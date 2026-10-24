@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-label="Logo Calculateur TVA : noyau lumineux portant le signe pourcentage, trois orbites et un arc de jauge">
+<defs>
+<radialGradient id="main-tvaHalo" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#2f74ff" stop-opacity="0.45"></stop>
+<stop offset="45%" stop-color="#1a3d9e" stop-opacity="0.18"></stop>
+<stop offset="100%" stop-color="#070b18" stop-opacity="0"></stop>
+</radialGradient>
+<radialGradient id="main-tvaCore" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#ffffff" stop-opacity="1"></stop>
+<stop offset="35%" stop-color="#bfe2ff" stop-opacity="0.9"></stop>
+<stop offset="70%" stop-color="#3d8bff" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#3d8bff" stop-opacity="0"></stop>
+</radialGradient>
+<radialGradient id="main-tvaDot" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#ffffff"></stop>
+<stop offset="40%" stop-color="#9fd8ff"></stop>
+<stop offset="100%" stop-color="#3d8bff" stop-opacity="0"></stop>
+</radialGradient>
+<radialGradient id="main-tvaDotWarm" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#fff6e0"></stop>
+<stop offset="40%" stop-color="#ffc06b"></stop>
+<stop offset="100%" stop-color="#ff8a3d" stop-opacity="0"></stop>
+</radialGradient>
+<linearGradient id="main-tvaOrbit" x1="90" y1="0" x2="390" y2="0" gradientUnits="userSpaceOnUse">
+<stop offset="0%" stop-color="#3d8bff"></stop>
+<stop offset="55%" stop-color="#7ee8ff"></stop>
+<stop offset="100%" stop-color="#3d8bff"></stop>
+</linearGradient>
+<linearGradient id="main-tvaGauge" x1="240" y1="40" x2="430" y2="178" gradientUnits="userSpaceOnUse">
+<stop offset="0%" stop-color="#3d8bff"></stop>
+<stop offset="60%" stop-color="#7ee8ff"></stop>
+<stop offset="100%" stop-color="#ffb347"></stop>
+</linearGradient>
+</defs>
+<rect width="480" height="480" fill="#070b18"></rect>
+<g fill="#8fb4ff" opacity="0.55">
+<circle cx="52" cy="70" r="1"></circle><circle cx="410" cy="48" r="1.2"></circle><circle cx="448" cy="300" r="0.9"></circle><circle cx="30" cy="390" r="1.1"></circle><circle cx="380" cy="440" r="0.8"></circle><circle cx="130" cy="452" r="1"></circle><circle cx="96" cy="160" r="0.7"></circle><circle cx="456" cy="170" r="0.8"></circle>
+</g>
+<circle cx="240" cy="240" r="210" fill="url(#main-tvaHalo)"></circle>
+<circle cx="240" cy="240" r="200" fill="none" stroke="#2b3c74" stroke-width="1" opacity="0.7"></circle>
+<circle cx="240" cy="240" r="190" fill="none" stroke="#2b3c74" stroke-width="0.6" stroke-dasharray="1 6" opacity="0.6"></circle>
+<path d="M240 40 A200 200 0 0 1 430.2 178.2" fill="none" stroke="url(#main-tvaGauge)" stroke-width="2.2" stroke-linecap="round"></path>
+<circle cx="430.2" cy="178.2" r="14" fill="url(#main-tvaDotWarm)"></circle>
+<circle cx="430.2" cy="178.2" r="3.2" fill="#fff6e0"></circle>
+<g fill="none" stroke="url(#main-tvaOrbit)" stroke-width="1.3" opacity="0.85">
+<ellipse cx="240" cy="240" rx="150" ry="50"></ellipse>
+<ellipse cx="240" cy="240" rx="150" ry="50" transform="rotate(60 240 240)"></ellipse>
+<ellipse cx="240" cy="240" rx="150" ry="50" transform="rotate(-60 240 240)"></ellipse>
+</g>
+<g fill="#9fd0ff" opacity="0.5">
+<circle cx="190" cy="150" r="0.9"></circle><circle cx="300" cy="160" r="0.8"></circle><circle cx="320" cy="320" r="0.9"></circle><circle cx="170" cy="318" r="0.8"></circle><circle cx="150" cy="210" r="0.7"></circle><circle cx="330" cy="262" r="0.7"></circle><circle cx="262" cy="130" r="0.6"></circle><circle cx="214" cy="346" r="0.7"></circle>
+</g>
+<circle cx="390" cy="240" r="16" fill="url(#main-tvaDot)"></circle>
+<circle cx="390" cy="240" r="4.5" fill="#ffffff"></circle>
+<g transform="rotate(60 240 240)">
+<circle cx="90" cy="240" r="12" fill="url(#main-tvaDot)"></circle>
+<circle cx="90" cy="240" r="3.4" fill="#ffffff"></circle>
+</g>
+<g transform="rotate(-60 240 240)">
+<circle cx="372" cy="216" r="9" fill="url(#main-tvaDot)"></circle>
+<circle cx="372" cy="216" r="2.4" fill="#ffffff"></circle>
+</g>
+<circle cx="240" cy="240" r="64" fill="url(#main-tvaCore)"></circle>
+<g fill="none" stroke="#0b1a46" stroke-width="3" stroke-linecap="round">
+<line x1="223" y1="261" x2="257" y2="219"></line>
+<circle cx="225" cy="223" r="6.5"></circle>
+<circle cx="255" cy="257" r="6.5"></circle>
+</g>
+</svg>

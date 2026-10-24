@@ -370,3 +370,10 @@ body:not(.clair) .volte .verso{background:#123C9C;border-color:var(--vive)}/* L'
 #armoire .aide i.g::after{left:0}
 #armoire .aide i.d::after{right:0}
 @media (max-width:980px){#armoire{height:auto}#armoire .ar-scene{position:relative;right:auto;height:420px}#armoire .ar-hud{position:relative;width:auto;height:auto}}
+/* Les logos des outils (planche du 24/10/2026 : TVA 01 « Jauge 20 % »,
+   Stripe 03 « Carte en orbite ») : dessinés pour la nuit, ils sont posés
+   dans une pastille sombre, comme l'emblème d'IFC. */
+.outil-tete{display:flex;align-items:center;gap:20px;margin-bottom:18px}
+.outil-tete .caps{margin:0}
+.logo-outil{flex:none;width:104px;height:104px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#12204a 0%,#05070f 72%);
+  box-shadow:0 0 0 1px rgba(21,67,172,.35),0 10px 26px rgba(5,7,15,.25)}
