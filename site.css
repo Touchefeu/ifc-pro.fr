@@ -244,4 +244,20 @@ footer.clair{background:var(--fond)}
 .volte .verso p{color:#F3ECE0}
 .volte:hover,.volte:focus-visible{position:relative;z-index:2}
 .volte:focus-visible .face{box-shadow:0 0 0 2px var(--vive)}
-@media (prefers-reduced-motion:reduce){.volte-int,.volte.retournee .volte-int{transition:none}}
+@media (prefers-reduced-motion:reduce){.volte-int,.volte.retournee .volte-int{transition:none}}/* Les portes de l'accueil sont des liens : le verso porte le texte et « Entrer ». */
+a.volte{display:block;color:var(--texte)}
+a.volte:hover{text-decoration:none}
+.volte.porte .verso{flex-direction:column;align-items:flex-start;justify-content:center;gap:4px}
+.volte.porte .verso .aller{color:#9DBBFF}
+/* Sur la nuit bleue, le verso s'éclaire d'un bleu plus vif pour se détacher. */
+body:not(.clair) .volte .verso{background:#123C9C;border-color:var(--vive)}/* L'assistant sous la vidéo, dans la colonne de droite : plus étroit, en haut
+   de la page, il évite le défilement ; il se retourne comme les autres tuiles. */
+.cote{display:flex;flex-direction:column;gap:22px;min-width:0}
+.volte.assistant{display:block;margin:0;padding:0;background:none;border:0;box-shadow:none}
+.volte.assistant .face{padding:20px 24px;background:var(--panneau);border:1px solid var(--arete);box-shadow:inset 2px 0 0 var(--vive)}
+.volte.assistant .recto{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;justify-content:normal;text-align:left}
+.volte.assistant .presence{width:110px;height:110px}
+.volte.assistant h3{margin:4px 0 8px;font-size:20px}
+.volte.assistant .apprend{margin:0;font-size:14.5px}
+.volte.assistant .verso{flex-direction:column;align-items:flex-start;justify-content:center}
+.volte.assistant .verso p{margin:0 0 10px;font-size:14.5px}

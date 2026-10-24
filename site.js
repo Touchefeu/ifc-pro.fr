@@ -52,8 +52,13 @@
       recto.style.setProperty('--angle', (90 + x * 90) + 'deg'); recto.style.setProperty('--brille', '.55');
     });
     v.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') remettre(); });
-    v.addEventListener('click', e => { if (e.pointerType && e.pointerType === 'mouse') return; v.classList.contains('retournee') ? remettre() : retourner(); });
-    v.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); v.classList.contains('retournee') ? remettre() : retourner(); } });
+    // Au doigt, un premier appui retourne ; sur une porte (un lien), le second appui l'ouvre.
+    v.addEventListener('click', e => {
+      if (e.pointerType === 'mouse') return;
+      if (v.tagName === 'A') { if (!v.classList.contains('retournee')) { e.preventDefault(); retourner(); } return; }
+      v.classList.contains('retournee') ? remettre() : retourner();
+    });
+    v.addEventListener('keydown', e => { if (e.key === ' ' || (e.key === 'Enter' && v.tagName !== 'A')) { e.preventDefault(); v.classList.contains('retournee') ? remettre() : retourner(); } });
     v.addEventListener('blur', remettre);
   });
 })();
