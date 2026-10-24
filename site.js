@@ -29,3 +29,31 @@
   addEventListener('resize', () => { taille(); if (calme) dessin(); });
   taille(); dessin();
 })();
+
+/* La volte des cartes : l'inclinaison d'abord, le retournement après un temps
+   court. Au doigt (pas de survol), un appui retourne la carte. */
+(function(){
+  const TEMPS_PLAQUE = 350, DUREE_VOLTE = 450;
+  document.querySelectorAll('.volte').forEach(v => {
+    const int = v.querySelector('.volte-int'), recto = v.querySelector('.recto');
+    let minuterie = null, finVolte = null;
+    const retourner = () => { v.classList.add('retournee'); finVolte = setTimeout(() => v.classList.add('pose'), DUREE_VOLTE); };
+    const remettre = () => {
+      clearTimeout(minuterie); clearTimeout(finVolte); v.classList.remove('retournee', 'pose');
+      ['--rx', '--ry'].forEach(p => int.style.removeProperty(p)); recto.style.removeProperty('--brille');
+    };
+    v.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') minuterie = setTimeout(retourner, TEMPS_PLAQUE); });
+    v.addEventListener('pointermove', e => {
+      if (e.pointerType !== 'mouse') return;
+      const r = v.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      const k = v.classList.contains('retournee') ? .35 : 1;
+      int.style.setProperty('--rx', ((0.5 - y) * 12 * k).toFixed(1) + 'deg');
+      int.style.setProperty('--ry', ((x - 0.5) * 14 * k).toFixed(1) + 'deg');
+      recto.style.setProperty('--angle', (90 + x * 90) + 'deg'); recto.style.setProperty('--brille', '.55');
+    });
+    v.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') remettre(); });
+    v.addEventListener('click', e => { if (e.pointerType && e.pointerType === 'mouse') return; v.classList.contains('retournee') ? remettre() : retourner(); });
+    v.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); v.classList.contains('retournee') ? remettre() : retourner(); } });
+    v.addEventListener('blur', remettre);
+  });
+})();
