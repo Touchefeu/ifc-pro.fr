@@ -282,3 +282,8 @@ body:not(.clair) .volte .verso{background:#123C9C;border-color:var(--vive)}/* L'
   .volte.assistant .verso p{color:var(--texte)}
   body:not(.clair) .volte.assistant .verso{background:var(--panneau);border-color:var(--arete)}
 }
+/* L'apparition au défilement fait glisser le bloc produit (transform) ; un
+   ancêtre transformé devient le repère d'un élément fixe : l'assistant
+   s'affichait un instant au milieu de la page avant de rejoindre la marge
+   (Aurélien, 24/10). Sur grand écran, le bloc produit apparaît en fondu seul. */
+@media (min-width:1700px){.produit.monte,.produit.monte.vu{transform:none}}
