@@ -377,3 +377,5 @@ body:not(.clair) .volte .verso{background:#123C9C;border-color:var(--vive)}/* L'
 .outil-tete .caps{margin:0}
 .logo-outil{flex:none;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#12204a 0%,#05070f 72%);
   box-shadow:0 0 0 1px rgba(21,67,172,.35),0 10px 26px rgba(5,7,15,.25)}
+/* La marque déposée METACUBE (INPI n° 5300882) porte son ® : au titre, à la porte de l'accueil, au pied de page (Aurélien, 24/10). */
+sup.r{font-size:max(.55em,10px);vertical-align:super;line-height:0;letter-spacing:0;margin-left:.12em;font-weight:400}
