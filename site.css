@@ -261,3 +261,6 @@ body:not(.clair) .volte .verso{background:#123C9C;border-color:var(--vive)}/* L'
 .volte.assistant .apprend{margin:0;font-size:14.5px}
 .volte.assistant .verso{flex-direction:column;align-items:flex-start;justify-content:center}
 .volte.assistant .verso p{margin:0 0 10px;font-size:14.5px}
+/* L'assistant en haut à gauche, au-dessus du texte (Aurélien, 24/10). */
+.produit .volte.assistant{margin-bottom:26px}
+.produit{align-items:start}
