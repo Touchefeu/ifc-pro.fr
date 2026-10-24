@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <meta name="description" content="METACUBE, le produit phare d'IFC : il lit la comptabilité de toutes les sociétés d'un groupe par leurs FEC, la comprend et en vérifie la cohérence. Disponible au 1er janvier 2027.">
-<link rel="stylesheet" href="site.css?v=20261024-7">
+<link rel="stylesheet" href="site.css?v=20261024-8">
 </head>
 <body>
 <canvas id="ciel" aria-hidden="true"></canvas>
@@ -70,6 +70,17 @@
 
     </section>
 
+  <section id="au-travail">
+    <div class="titre"><h2>Le moteur au travail</h2><hr></div>
+    <p class="chapeau">Chaque vidéo part d'une donnée réelle, rendue fictive, et suit le raisonnement que le moteur a mené seul jusqu'à sa conclusion. Aucune consigne, aucun réglage : le dossier tel qu'il est.</p>
+    <div id="armoire" aria-label="L'armoire des vidéos : un tiroir par cycle de révision">
+      <div class="ar-scene"><div class="ar-monde"></div></div>
+      <aside class="ar-hud"><div class="ar-tete"><span class="caps">Un tiroir par cycle</span><div class="ar-sous">L'armoire des vidéos</div></div><div class="ar-fil"></div><div class="ar-corps"></div>
+        <div class="aide"><span><i class="g"></i>descendre</span><span><i class="d"></i>remonter</span><span>maintenir : tourner</span></div></aside>
+    </div>
+    <p class="mention">Données fictives, raisonnement réel. Les vidéos sont servies par ce site : ni lecteur tiers, ni traceur.</p>
+  </section>
+
 </main>
 
 <footer>
@@ -79,7 +90,8 @@
   </div>
 </footer>
 
-<script src="site.js?v=20261024-7"></script>
+<script src="site.js?v=20261024-8"></script>
 <script src="assistant.js"></script>
+<script src="armoire.js?v=1"></script>
 </body>
 </html>

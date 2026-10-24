@@ -287,3 +287,86 @@ body:not(.clair) .volte .verso{background:#123C9C;border-color:var(--vive)}/* L'
    s'affichait un instant au milieu de la page avant de rejoindre la marge
    (Aurélien, 24/10). Sur grand écran, le bloc produit apparaît en fondu seul. */
 @media (min-width:1700px){.produit.monte,.produit.monte.vu{transform:none}}
+/* ── LE MOTEUR AU TRAVAIL — 24/10/2026 ─────────────────────────────────────
+   Les vidéos de la série LinkedIn, servies par le site lui-même : le visiteur
+   qui n'arrive pas par LinkedIn les voit aussi (Aurélien). Une vidéo entre ici
+   le jour où elle est postée. */
+.episodes{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.episode{display:grid;grid-template-rows:auto 1fr;background:var(--panneau);border:1px solid var(--arete)}
+.episode video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.episode .legende{padding:20px 24px 24px}
+.episode .n{display:block;margin-bottom:8px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--violet-clair)}
+.episode h3{margin:0 0 10px;font-weight:500;font-size:19px;color:var(--clair)}
+.episode p{margin:0;font-size:14.5px}
+#au-travail .mention{margin:22px 0 0;font-size:13px;color:var(--faible)}
+@media (max-width:980px){.episodes{grid-template-columns:1fr}}
+/* ── L'ARMOIRE DES VIDÉOS — 24/10/2026 ─────────────────────────────────────
+   L'armoire Monolithe de METACUBE (maquette d'Aurélien, 10/10/2026), confinée
+   à #armoire : un tiroir par cycle de révision, une fiche debout par vidéo.
+   Les textes ne sont jamais coupés : ils passent à la ligne. */
+#armoire{--ar-cyan:hsl(196 92% 62%);--ar-bleu:hsl(228 85% 64%);--ar-violet:hsl(262 75% 66%);--ar-vert:hsl(142 72% 55%);
+  --ar-txt:#e8eeff;--ar-moyen:rgba(232,238,255,.72);--ar-faible:rgba(232,238,255,.45);
+  position:relative;height:640px;border:1px solid var(--arete);overflow:hidden;user-select:none;color:var(--ar-txt);
+  background:radial-gradient(120% 90% at 35% 75%,hsl(232 55% 11%) 0%,#04060c 62%)}
+#armoire .ar-scene{position:absolute;top:0;left:0;bottom:0;right:380px;perspective:1500px;perspective-origin:50% 40%;overflow:hidden;cursor:pointer}
+#armoire .ar-scene.glisse,#armoire .ar-scene.glisse *{cursor:grabbing !important}
+#armoire .ar-monde{position:absolute;left:50%;top:46%;width:0;height:0;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.22,.8,.2,1)}
+#armoire .ancre,#armoire .glissiere{position:absolute;left:0;top:0;width:0;height:0;transform-style:preserve-3d}
+#armoire .glissiere{transition:transform .95s cubic-bezier(.2,.85,.25,1)}
+#armoire .face{position:absolute;pointer-events:none}
+#armoire .sol{background:radial-gradient(circle at 50% 50%,hsla(206,95%,55%,.20) 0%,hsla(250,80%,50%,.07) 20%,transparent 42%),repeating-linear-gradient(0deg,hsla(228,70%,62%,.08) 0 1px,transparent 1px 64px),repeating-linear-gradient(90deg,hsla(228,70%,62%,.08) 0 1px,transparent 1px 64px);-webkit-mask-image:radial-gradient(circle,#000 22%,transparent 58%);mask-image:radial-gradient(circle,#000 22%,transparent 58%)}
+#armoire .tav{pointer-events:auto;cursor:pointer;overflow:hidden;background:linear-gradient(180deg,hsl(226 36% 21%) 0%,hsl(236 42% 12%) 55%,hsl(246 46% 8%) 100%);border:1px solid hsla(196,80%,62%,.28);box-shadow:inset 0 1px 0 hsla(196,100%,80%,.6),inset 0 -1px 0 hsla(262,80%,66%,.4);transition:filter .3s}
+#armoire .tav::after{content:'';position:absolute;inset:0;background:linear-gradient(112deg,transparent 30%,rgba(255,255,255,.08) 42%,transparent 52%);pointer-events:none}
+#armoire .tiroir.vide .tav{filter:brightness(.6)}
+#armoire .tiroir.tente .tav{filter:brightness(1.35)}
+#armoire .tiroir.ouvert .tav{border-color:hsla(142,72%,55%,.7)}
+#armoire .lettre{position:absolute;left:10px;top:8px;font:500 15px/1 'Space Grotesk',sans-serif;color:var(--ar-cyan)}
+#armoire .nomt{position:absolute;left:32px;right:10px;top:9px;font:500 9.5px/1.3 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--ar-txt);text-shadow:0 0 8px hsla(196,95%,62%,.35)}
+#armoire .pts{display:inline-flex;gap:3px;align-items:center}
+#armoire .pts i{display:block;width:5px;height:5px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,var(--ar-cyan) 60%,var(--ar-violet));box-shadow:0 0 5px hsla(196,95%,62%,.8)}
+#armoire .tav .pts{position:absolute;right:10px;bottom:9px}
+#armoire .poignee{position:absolute;left:34%;right:34%;bottom:10px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--ar-cyan),var(--ar-violet));box-shadow:0 0 8px hsla(196,95%,62%,.6);transition:box-shadow .4s,background .4s}
+#armoire .tiroir.tente .poignee{box-shadow:0 0 16px hsla(196,95%,62%,1)}
+#armoire .tiroir.ouvert .poignee{background:var(--ar-vert);box-shadow:0 0 12px hsla(142,72%,55%,.9)}
+#armoire .tfond{background:linear-gradient(0deg,hsl(236 40% 8%),hsl(228 36% 15%))}
+#armoire .tcote{background:linear-gradient(180deg,hsl(226 34% 19%),hsl(240 40% 8%));border-top:1px solid hsla(196,85%,65%,.5)}
+#armoire .tdos{background:hsl(236 38% 10%);border-top:1px solid hsla(196,85%,65%,.4)}
+#armoire .fiche{pointer-events:auto;cursor:pointer;visibility:hidden;border:1px solid hsla(196,80%,66%,.4);border-radius:3px;background:linear-gradient(180deg,hsl(222 36% 24%),hsl(232 40% 14%) 70%,hsl(240 42% 11%));box-shadow:inset 0 1px 0 hsla(196,100%,85%,.45);padding:10px 10px 0;overflow:visible;transition:transform .42s cubic-bezier(.2,.9,.3,1.12),border-color .3s,box-shadow .3s,visibility 0s .95s}
+#armoire .tiroir.ouvert .fiche{visibility:visible;transition:transform .42s cubic-bezier(.2,.9,.3,1.12),border-color .3s,box-shadow .3s,visibility 0s 0s}
+#armoire .fiche.survol{transform:translateY(-46px);border-color:hsla(196,95%,72%,.95);box-shadow:inset 0 1px 0 hsla(196,100%,85%,.75),0 0 20px hsla(196,95%,60%,.4)}
+#armoire .fiche.armee{transform:translateY(-56px);border-color:var(--ar-vert);box-shadow:inset 0 1px 0 hsla(142,90%,80%,.6),0 0 24px hsla(142,72%,55%,.5)}
+#armoire .onglet{position:absolute;top:-14px;height:14px;padding:0 7px;font:600 8.5px/14px 'Space Grotesk',sans-serif;letter-spacing:.12em;color:#04060c;background:linear-gradient(90deg,var(--ar-cyan),var(--ar-bleu));border-radius:3px 3px 0 0;white-space:nowrap}
+#armoire .fiche.armee .onglet{background:var(--ar-vert)}
+#armoire .f-nom{font:500 12px/1.25 'Space Grotesk',sans-serif}
+#armoire .f-meta{font:400 9.5px/1.3 'Space Grotesk',sans-serif;color:var(--ar-moyen);margin-top:3px}
+#armoire .f-trait{height:1px;margin:6px 0 5px;background:linear-gradient(90deg,var(--ar-cyan),var(--ar-violet) 55%,transparent)}
+#armoire .f-prin{font:400 9px/1.25 'Space Grotesk',sans-serif;color:var(--ar-faible)}
+#armoire .tiroir.tente .glissiere{transform:translateZ(14px)}
+#armoire .tiroir.ouvert .glissiere{transform:translateZ(280px)}
+#armoire .ar-hud{position:absolute;top:0;right:0;width:380px;height:100%;padding:24px 26px 20px;display:flex;flex-direction:column;gap:14px;
+  background:linear-gradient(180deg,rgba(9,13,30,.92),rgba(5,7,16,.96));border-left:1px solid hsla(196,90%,62%,.35)}
+#armoire .ar-sous{font:300 21px 'Space Grotesk',sans-serif;margin-top:4px;color:var(--ar-txt)}
+#armoire .ar-fil{font:400 11px 'Space Grotesk',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--ar-faible);padding-bottom:10px;border-bottom:1px solid hsla(228,60%,60%,.18)}
+#armoire .ar-fil b{font-weight:500;color:var(--ar-cyan)}
+#armoire .ar-corps{flex:1;overflow:auto;display:flex;flex-direction:column}
+#armoire .resume{font:400 11px 'Space Grotesk',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--ar-moyen);margin-bottom:8px}
+#armoire .puce{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid hsla(228,60%,60%,.10);font:400 12.5px 'Space Grotesk',sans-serif;cursor:pointer;transition:color .2s,padding .2s}
+#armoire .puce b{display:inline-block;width:16px;font-weight:500;color:var(--ar-cyan)}
+#armoire .puce.vide{color:var(--ar-faible)}
+#armoire .puce:hover{color:var(--ar-cyan);padding-left:4px}
+#armoire .ligne{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 0;border-bottom:1px solid hsla(228,60%,60%,.12);cursor:pointer;transition:color .2s,padding .25s}
+#armoire .ligne:hover,#armoire .ligne.on{color:var(--ar-cyan);padding-left:6px}
+#armoire .ligne .n{font:400 14px 'Space Grotesk',sans-serif}
+#armoire .ligne .c{font:400 11px 'Space Grotesk',sans-serif;color:var(--ar-faible);white-space:nowrap}
+#armoire p.vide{margin:8px 0 0;font-size:13.5px;color:var(--ar-moyen)}
+#armoire video{display:block;width:100%;aspect-ratio:16/9;background:#000;border:1px solid hsla(196,80%,62%,.35);margin-bottom:14px}
+#armoire .titre-fiche{font:500 21px/1.2 'Space Grotesk',sans-serif}
+#armoire .meta{font:400 11px 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--ar-faible);margin:6px 0 10px}
+#armoire .meta b{font-weight:500;color:var(--ar-cyan)}
+#armoire .texte{margin:0;font-size:13.5px;line-height:1.6;color:var(--ar-moyen)}
+#armoire .aide{display:flex;gap:18px;font:400 10.5px 'Space Grotesk',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--ar-faible)}
+#armoire .aide i{display:inline-block;width:10px;height:14px;border:1px solid var(--ar-faible);border-radius:5px;margin-right:7px;vertical-align:-3px;position:relative;overflow:hidden}
+#armoire .aide i::after{content:'';position:absolute;top:0;width:4px;height:6px;background:var(--ar-cyan)}
+#armoire .aide i.g::after{left:0}
+#armoire .aide i.d::after{right:0}
+@media (max-width:980px){#armoire{height:auto}#armoire .ar-scene{position:relative;right:auto;height:420px}#armoire .ar-hud{position:relative;width:auto;height:auto}}
