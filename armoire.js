@@ -1,7 +1,7 @@
-/* L'ARMOIRE DES VIDÉOS — la série « Le moteur au travail », rangée cycle par cycle.
+/* L'ARMOIRE DES VIDÉOS — la série « Le moteur au travail », rangée par thème.
    L'armoire Monolithe des contacts de METACUBE (maquette d'Aurélien du
    10/10/2026, METACUBE/contacts_armoire.py), reprise telle quelle : un tiroir
-   par cycle de révision (A à L), une fiche debout par vidéo. Clic gauche :
+   par thème (A à L), une fiche debout par vidéo. Clic gauche :
    on descend (armoire → tiroir → vidéo) ; clic droit : on remonte ; clic
    gauche maintenu : on tourne l'armoire. Un glisser n'est pas un clic.
    Une vidéo entre ici le jour où elle est postée sur LinkedIn. */
@@ -61,7 +61,7 @@
     av.addEventListener('mouseleave', () => a.classList.remove('tente'));
     const fiches = t.videos.map((v, k) => {
       const f = face(ancre(g, 0, CH / 2 - 3 - ch / 2, dd / 2 - 30 - k * 46), cw, ch, '', 'fiche');
-      f.innerHTML = '<div class="onglet" style="left:' + (6 + k * 40) + 'px">N° ' + v.n + '</div><div class="f-nom">' + v.titre + '</div><div class="f-meta">' + v.duree + ' · cycle ' + t.code + '</div><div class="f-trait"></div><div class="f-prin">' + t.nom + '</div>';
+      f.innerHTML = '<div class="onglet" style="left:' + (6 + k * 40) + 'px">N° ' + v.n + '</div><div class="f-nom">' + v.titre + '</div><div class="f-meta">' + v.duree + ' · thème ' + t.code + '</div><div class="f-trait"></div><div class="f-prin">' + t.nom + '</div>';
       f.addEventListener('mouseenter', () => { retenir(); survoler(k); });
       f.addEventListener('click', ev => { ev.stopPropagation(); if (ev.button === 0 && tOuvert === j) selectionner(k); });
       return f;
@@ -88,18 +88,18 @@
     const t = TIROIRS[tOuvert];
     hudFil.innerHTML = vue === 1 ? '<b>Armoire</b>' : vue === 2 ? 'Armoire › <b>' + t.code + ' · ' + t.nom + '</b>' : 'Armoire › ' + t.code + ' › <b>N° ' + t.videos[fSel].n + '</b>';
     if (vue === 1){
-      hudCorps.innerHTML = '<div class="resume">' + pluriel(TIROIRS.length, 'cycle', 'cycles') + ' · ' + pluriel(VIDEOS.length, 'vidéo', 'vidéos') + '</div>'
+      hudCorps.innerHTML = '<div class="resume">' + pluriel(TIROIRS.length, 'thème', 'thèmes') + ' · ' + pluriel(VIDEOS.length, 'vidéo', 'vidéos') + '</div>'
         + TIROIRS.map((e, j) => '<div class="puce' + (e.videos.length ? '' : ' vide') + '" data-j="' + j + '"><span><b>' + e.code + '</b> ' + e.nom + '</span>' + pts(e.videos.length) + '</div>').join('');
       hudCorps.querySelectorAll('.puce').forEach(l => { const j = +l.dataset.j; l.onclick = () => ouvrir(j); l.onmouseenter = () => tiroirs[j].a.classList.add('tente'); l.onmouseleave = () => tiroirs[j].a.classList.remove('tente'); });
     } else if (vue === 2){
-      hudCorps.innerHTML = '<div class="resume">Cycle ' + t.code + ' · ' + pluriel(t.videos.length, 'vidéo', 'vidéos') + '</div>'
+      hudCorps.innerHTML = '<div class="resume">Thème ' + t.code + ' · ' + pluriel(t.videos.length, 'vidéo', 'vidéos') + '</div>'
         + (t.videos.length ? t.videos.map((v, k) => '<div class="ligne" data-k="' + k + '"><span class="n">N° ' + v.n + ' · ' + v.titre + '</span><span class="c">' + v.duree + '</span></div>').join('')
-                           : '<p class="vide">Pas encore de vidéo dans ce cycle. Elle viendra.</p>');
+                           : '<p class="vide">Pas encore de vidéo dans ce thème. Elle viendra.</p>');
       hudCorps.querySelectorAll('.ligne').forEach(l => { const k = +l.dataset.k; l.onclick = () => selectionner(k); l.onmouseenter = () => { retenir(); survoler(k); }; });
     } else {
       const v = t.videos[fSel];
       hudCorps.innerHTML = '<video controls playsinline preload="metadata" poster="' + v.image + '"><source src="' + v.fichier + '" type="video/mp4"></video>'
-        + '<div class="titre-fiche">' + v.titre + '</div><div class="meta">N° ' + v.n + ' · ' + v.duree + ' · cycle <b>' + t.code + '</b></div><p class="texte">' + v.texte + '</p>';
+        + '<div class="titre-fiche">' + v.titre + '</div><div class="meta">N° ' + v.n + ' · ' + v.duree + ' · thème <b>' + t.code + '</b></div><p class="texte">' + v.texte + '</p>';
     }
   }
 
