@@ -21,7 +21,10 @@
      texte: "« SALAIRE JANVIER CLAIRE · 4 200 € », passée au compte des salaires. Sans SIREN ni consigne, le moteur lit le dossier, écarte les formes juridiques une à une, chacune par un texte, et conclut : Claire est gérante majoritaire, sa rémunération ne relève pas du 641."},
     {n: 2, cycle: 'B', titre: 'La RFE en 2 minutes', duree: '2 min',
      fichier: 'videos/la-rfe-en-2-minutes.mp4', image: 'videos/la-rfe-en-2-minutes.jpg',
-     texte: "Les trois flux de la réforme : la facture, ses statuts, l'e-reporting. Puis le piège du lettrage, qui fait disparaître un paiement ou le déclare au mauvais mois, et la réponse du moteur : partir de la banque, et confronter la comptabilité à ce que la plateforme a transmis."}];
+     texte: "Les trois flux de la réforme : la facture, ses statuts, l'e-reporting. Puis le piège du lettrage, qui fait disparaître un paiement ou le déclare au mauvais mois, et la réponse du moteur : partir de la banque, et confronter la comptabilité à ce que la plateforme a transmis."},
+    {n: 3, cycle: 'C', titre: 'Un loyer, douze mois', duree: '2 min',
+     fichier: 'videos/un-loyer.mp4', image: 'videos/un-loyer.jpg',
+     texte: "Douze mois de loyer doivent être en charge, factures ou OD. Il en manque un : août, payé mais jamais saisi. L'assistant propose l'écriture et la pièce au référent. Puis le bail : le rappel d'indexation a été passé sur le mauvais indice ; elle propose le complément, au format Sage 100 de l'entité."}];
   const TIROIRS = CYCLES.map(([l, nom]) => ({code: l, nom, videos: VIDEOS.filter(v => v.cycle === l)}));
 
   /* ── LA GÉOMÉTRIE DOM 3D, celle de la maquette ── */
