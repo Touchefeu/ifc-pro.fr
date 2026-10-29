@@ -183,9 +183,15 @@ footer.clair{background:#fff}
 .temps h3{margin:0 0 10px;font-weight:500;font-size:22px;color:var(--clair)}
 .temps p{margin:0;font-size:16px}
 .temps img{display:block;width:100%;height:auto;border:1px solid var(--arete);box-shadow:0 18px 50px rgba(21,67,172,.18)}
+.film{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#070C16;border:1px solid var(--arete);box-shadow:0 18px 50px rgba(21,67,172,.18)}
+.temps3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:44px}
+.temps3 .n{display:block;margin-bottom:10px;font-size:34px;font-weight:500;color:var(--arete)}
+.temps3 h3{margin:0 0 10px;font-weight:500;font-size:22px;color:var(--clair)}
+.temps3 p{margin:0;font-size:16px}
 
 @media (max-width:980px){
   .temps{grid-template-columns:1fr;gap:18px}
+  .temps3{grid-template-columns:1fr;gap:26px}
   .ouverture,.produit,.poles,.fondateur{grid-template-columns:1fr}
   .ouverture{min-height:0;padding-top:40px}
   .astre{max-width:320px;order:-1}
@@ -260,20 +266,17 @@ footer.clair{background:var(--fond)}
     </div>
   </div>
 
-  <!-- EN TROIS TEMPS : chaque temps, son écran (captures de l'outil sur un dossier réel anonymisé, juillet 2021) -->
+  <!-- EN TROIS TEMPS : le film de l'outil sur un dossier réel anonymisé, juillet 2021 (validé par Aurélien le 29/10/2026,
+       à la place des trois captures), puis les trois temps en une ligne -->
   <section id="trois" class="clair pleine">
     <div class="titre"><h2>En trois temps</h2><hr></div>
-    <div class="temps monte">
-      <div><span class="n">1</span><h3>Déposez les deux FEC</h3><p>Le FEC de l’exercice en cours et celui de l’exercice précédent, glissés dans la fenêtre. Les deux sont indispensables : l’outil les lit et dit s’ils suffisent.</p></div>
-      <img src="img/tva-smart-deux-fec.png" alt="TVA Smart : les FEC de N−1 et de N déposés, lus et contrôlés" loading="lazy" width="1440" height="900">
-    </div>
-    <div class="temps monte">
-      <div><span class="n">2</span><h3>Il calcule</h3><p>La période à déclarer, chaque ligne de TVA avec sa décision et son motif, puis l’écriture d’OD, équilibrée.</p></div>
-      <img src="img/tva-smart-od.png" alt="TVA Smart : l’écriture d’OD de TVA de juillet 2021, équilibrée" loading="lazy" width="1440" height="900">
-    </div>
-    <div class="temps monte">
-      <div><span class="n">3</span><h3>Vous récupérez la déclaration et l’écriture</h3><p>La CA3 ou la CA12 remplie, l’OD au format de votre logiciel, et l’Excel qui justifie chaque montant.</p></div>
-      <img src="img/tva-smart-ca3.png" alt="TVA Smart : la CA3 de juillet 2021 remplie ligne par ligne" loading="lazy" width="1440" height="900">
+    <video class="film monte" controls playsinline preload="metadata" poster="videos/tva-smart.jpg" width="1920" height="1080">
+      <source src="videos/tva-smart.mp4" type="video/mp4">
+    </video>
+    <div class="temps3">
+      <div class="monte"><span class="n">1</span><h3>Déposez les deux FEC</h3><p>Le FEC de l’exercice en cours et celui de l’exercice précédent, glissés dans la fenêtre. Les deux sont indispensables : l’outil les lit et dit s’ils suffisent.</p></div>
+      <div class="monte"><span class="n">2</span><h3>Il calcule</h3><p>La période à déclarer, chaque ligne de TVA avec sa décision et son motif, puis l’écriture d’OD, équilibrée.</p></div>
+      <div class="monte"><span class="n">3</span><h3>Vous récupérez la déclaration et l’écriture</h3><p>La CA3 ou la CA12 remplie, l’OD au format de votre logiciel, et l’Excel qui justifie chaque montant.</p></div>
     </div>
   </section>
 
