@@ -8,9 +8,9 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <meta name="robots" content="noindex">
-<!-- Écrites le 28/10/2026 pour l'ouverture de la boutique Lemon Squeezy (vendeur en titre).
-     Les licences décrites ici sont celles du code : TVA Smart tvasmart/licence.py,
-     Intégrateur Stripe integrateur/licence.py. -->
+<!-- Écrites le 28/10/2026 ; réécrites le 31/10/2026 pour la vente en direct (Lemon Squeezy a refusé
+     la boutique). Les licences décrites ici sont celles du code : TVA Smart tvasmart/licence.py,
+     Intégrateur Stripe integrateur/licence.py, la commande et la clé commande.py (IFC VENTE). -->
 <style>
 @font-face{font-family:'Space Grotesk';font-weight:300 700;font-display:swap;src:url(polices/space-grotesk-latin-98a0d4.woff2) format('woff2')}
 :root{--fond:#FFFFFF;--panneau:#F3F6FC;--arete:#1543AC;--vive:#2F62D8;--texte:#22385F;--clair:#0B2E7A;--faible:#5F7396;--lien:#1543AC}
@@ -30,34 +30,34 @@ ul{margin:0 0 10px;padding-left:22px}
 <div class="page">
   <a class="retour" href="index.html">← IFC</a>
   <h1>Conditions générales de vente</h1>
-  <p class="date">En vigueur au 28 octobre 2026.</p>
+  <p class="date">En vigueur au 31 octobre 2026.</p>
 
   <h2>1. Objet</h2>
   <p>Les présentes conditions régissent la vente des licences des logiciels édités par INFORMATIQUE FINANCE CONSEIL (IFC), SASU au capital variable de 2 000 €, siège 3 rue de la Poterie, 35500 Vitré, RCS Rennes 983 987 280 : <strong>TVA Smart</strong> et <strong>Intégrateur Stripe</strong>. Ces logiciels s'adressent aux professionnels de la comptabilité et aux entreprises.</p>
 
-  <h2>2. Vendeur et paiement</h2>
-  <p>Les licences sont vendues par l'intermédiaire de <strong>Lemon Squeezy</strong>, qui agit comme revendeur en titre (merchant of record) : il encaisse le paiement, émet la facture et collecte la TVA applicable. IFC édite le logiciel, délivre la licence et en assure le support.</p>
-  <p>Les prix sont indiqués hors taxes sur les pages de chaque logiciel ; la TVA applicable est ajoutée au moment du paiement. Le paiement est exigible à la commande. Pour un abonnement, il est prélevé à chaque échéance.</p>
+  <h2>2. Commande, facture et paiement</h2>
+  <p>IFC vend ses licences directement, sans intermédiaire. La commande se passe par mail à l'adresse ci-dessous, depuis le logiciel ou depuis la page de chaque logiciel, avec la raison sociale, le SIREN, l'adresse de facturation et l'adresse électronique de l'acheteur.</p>
+  <p>IFC émet la facture. Les prix sont indiqués hors taxes sur les pages de chaque logiciel ; la TVA au taux de 20 % s'y ajoute. La facture est payable à réception, par virement. La clé est envoyée à réception du paiement. Pour un abonnement, chaque période fait l'objet d'une facture, et sa clé prolonge la précédente.</p>
 
   <h2>3. Licence TVA Smart</h2>
   <ul>
     <li><strong>À l'unité</strong> : la clé ouvre une déclaration, pour un dossier et une période. Refaire la même période ne consomme rien ; une autre période demande une autre clé.</li>
-    <li><strong>Abonnement</strong> : la clé ouvre un dossier tant que l'abonnement court, au rythme de déclaration du dossier (mois, trimestre ou exercice pour la CA12). La variante achetée doit correspondre à ce rythme.</li>
-    <li><strong>Pack cabinet</strong> (à partir de 10 dossiers) : sur demande à l'adresse ci-dessous.</li>
+    <li><strong>Abonnement</strong> : la clé ouvre un dossier jusqu'à la dernière période payée, au rythme de déclaration du dossier (mois, trimestre ou exercice pour la CA12). La formule commandée doit correspondre à ce rythme.</li>
+    <li><strong>Pack cabinet</strong> (à partir de 10 dossiers) : une clé par déclaration, au prix du pack, sur une même facture.</li>
   </ul>
   <p>La clé est demandée à l'étape de l'écriture de TVA, et seulement s'il y a une période à déclarer : tout le reste de l'outil s'utilise sans clé.</p>
 
   <h2>4. Licence Intégrateur Stripe</h2>
   <p>La licence est attachée à un poste, payée une fois, sans abonnement. La version achetée est acquise sans limite de durée ; les versions suivantes sont vendues à part. La clé ouvre la génération de l'écriture ; la lecture du FEC et de l'export Stripe se fait sans clé.</p>
 
-  <h2>5. Activation</h2>
-  <p>L'activation transmet au serveur de licences de Lemon Squeezy une empreinte (un condensé chiffré qui ne permet pas de retrouver les données) : celle du dossier pour TVA Smart, celle du poste pour l'Intégrateur Stripe. Aucune donnée comptable ne quitte le poste. Une clé vaut pour une seule activation. Pour changer de poste, écrivez-nous : nous libérons l'activation.</p>
+  <h2>5. Code de demande et activation</h2>
+  <p>Le logiciel affiche un code de demande : un condensé de la déclaration ou du dossier pour TVA Smart, du poste pour l'Intégrateur Stripe, qui ne permet pas de retrouver les données. L'acheteur le joint à sa commande. La clé est faite pour ce code et ne vaut que pour lui. Le logiciel la vérifie sur le poste, sans connexion : aucune donnée comptable ne quitte le poste. Pour changer de poste, écrivez-nous avec le code du nouveau poste : nous vous envoyons sa clé.</p>
 
   <h2>6. Rétractation et remboursement</h2>
   <p><strong>Avant activation</strong>, une clé est remboursée intégralement sur simple demande dans les 14 jours suivant l'achat.</p>
   <p><strong>Après activation</strong>, le contenu numérique a été fourni : conformément à l'article L221-28 13° du code de la consommation, l'acheteur qui active la clé renonce expressément à son droit de rétractation. Une clé activée n'est remboursée que si le logiciel ne fonctionne pas sur le dossier ou le poste pour lequel elle a été achetée et que nous n'avons pas pu corriger le défaut dans un délai raisonnable.</p>
-  <p>Un abonnement se résilie à tout moment depuis l'espace client Lemon Squeezy ; il cesse à la fin de la période payée, sans remboursement de la période en cours.</p>
-  <p>Toute demande de remboursement s'adresse à <a href="mailto:aurelien.touchefeu@ifc-pro.fr">aurelien.touchefeu@ifc-pro.fr</a>, en indiquant le numéro de commande.</p>
+  <p>Un abonnement se résilie à tout moment, par simple mail ; il cesse à la fin de la période payée, sans remboursement de la période en cours.</p>
+  <p>Toute demande de remboursement s'adresse à <a href="mailto:aurelien.touchefeu@ifc-pro.fr">aurelien.touchefeu@ifc-pro.fr</a>, en indiquant le numéro de facture.</p>
 
   <h2>7. Responsabilité</h2>
   <p>Les logiciels calculent à partir des écritures du dossier : ils présument une comptabilité tenue selon les règles. Les résultats qu'ils produisent (déclaration, écriture, lettrage) restent à valider par le professionnel qui les utilise, seul responsable de ses déclarations. La responsabilité d'IFC est limitée au prix payé pour la licence en cause, sauf faute lourde ou intentionnelle.</p>
@@ -66,7 +66,7 @@ ul{margin:0 0 10px;padding-left:22px}
   <p>Les logiciels restent la propriété d'IFC. La licence confère un droit d'usage personnel, non exclusif et non cessible ; toute copie, décompilation ou revente est interdite.</p>
 
   <h2>9. Données personnelles</h2>
-  <p>Les données de paiement sont traitées par Lemon Squeezy et ne sont pas communiquées à IFC. IFC reçoit le nom, l'adresse électronique et la commande de l'acheteur, utilisés pour la licence et le support uniquement. Voir aussi <a href="donnees.html">Où vont vos données</a>.</p>
+  <p>IFC reçoit la raison sociale, le SIREN, l'adresse de facturation, l'adresse électronique et la commande de l'acheteur, utilisés pour la facture, la licence et le support uniquement, et conservés avec les factures pendant la durée légale. Voir aussi <a href="donnees.html">Où vont vos données</a>.</p>
 
   <h2>10. Droit applicable</h2>
   <p>Les présentes conditions sont soumises au droit français. Entre professionnels, tout litige relève des tribunaux de Rennes. Un acheteur consommateur peut saisir la juridiction de son domicile.</p>
