@@ -24,7 +24,10 @@
      texte: "Les trois flux de la réforme : la facture, ses statuts, l'e-reporting. Puis le piège du lettrage, qui fait disparaître un paiement ou le déclare au mauvais mois, et la réponse du moteur : partir de la banque, et confronter la comptabilité à ce que la plateforme a transmis."},
     {n: 3, cycle: 'C', titre: 'Un loyer, douze mois', duree: '2 min',
      fichier: 'videos/un-loyer.mp4', image: 'videos/un-loyer.jpg',
-     texte: "Douze mois de loyer doivent être en charge, factures ou OD. Il en manque un : août, payé mais jamais saisi. L'assistant propose l'écriture et la pièce au référent. Puis le bail : le rappel d'indexation a été passé sur le mauvais indice ; elle propose le complément, au format Sage 100 de l'entité."}];
+     texte: "Douze mois de loyer doivent être en charge, factures ou OD. Il en manque un : août, payé mais jamais saisi. L'assistant propose l'écriture et la pièce au référent. Puis le bail : le rappel d'indexation a été passé sur le mauvais indice ; elle propose le complément, au format Sage 100 de l'entité."},
+    {n: 4, cycle: 'A', titre: 'Du relevé de banque au journal', duree: '4 min',
+     fichier: 'videos/du-releve-de-banque-au-journal.mp4', image: 'videos/du-releve-de-banque-au-journal.jpg',
+     texte: "Un relevé de banque, un clic : le journal est écrit, deux lignes par mouvement, et chaque règlement est lettré au compte de son tiers. Puis ce qui s'est réellement passé : le libellé lu comme un comptable, les habitudes et le schéma du dossier, la facture moins l'avoir qui font le règlement, les sources qui convergent. Ce qu'il ne sait pas trancher, il le met en attente et pose la question ; la fois suivante, il sait. Tout tourne sur le poste, sans IA générative."}];
   const TIROIRS = CYCLES.map(([l, nom]) => ({code: l, nom, videos: VIDEOS.filter(v => v.cycle === l)}));
 
   /* ── LA GÉOMÉTRIE DOM 3D, celle de la maquette ── */
