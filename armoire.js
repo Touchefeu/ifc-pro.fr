@@ -30,7 +30,10 @@
      texte: "Un relevé de banque, un clic : le journal est écrit, deux lignes par mouvement, et chaque règlement est lettré au compte de son tiers. Puis ce qui s'est réellement passé : le libellé lu comme un comptable, les habitudes et le schéma du dossier, la facture moins l'avoir qui font le règlement, les sources qui convergent. Ce qu'il ne sait pas trancher, il le met en attente et pose la question ; la fois suivante, il sait. Tout tourne sur le poste, sans IA générative."},
     {n: 5, cycle: 'L', titre: 'Le procédé du cerveau', duree: '4 min',
      fichier: 'videos/le-procede-du-cerveau.mp4', image: 'videos/le-procede-du-cerveau.jpg',
-     texte: "Ce qui se passe dans le moteur quand il lit une ligne : chaque point est l'un de ses 6 583 neurones, et ce qui s'allume est ce qu'il a réellement activé. Lire le libellé, toucher ce qu'il sait, propager, reconnaître la forme d'une écriture, payer l'effort, décider, puis vérifier par des chemins indépendants. Pour qui veut voir le raisonnement de l'intérieur."}];
+     texte: "Ce qui se passe dans le moteur quand il lit une ligne : chaque point est l'un de ses 6 583 neurones, et ce qui s'allume est ce qu'il a réellement activé. Lire le libellé, toucher ce qu'il sait, propager, reconnaître la forme d'une écriture, payer l'effort, décider, puis vérifier par des chemins indépendants. Pour qui veut voir le raisonnement de l'intérieur."},
+    {n: 6, cycle: 'K', titre: "Qu'est-ce qu'un groupe ?", duree: '1 min 30',
+     fichier: 'videos/qu-est-ce-qu-un-groupe.mp4', image: 'videos/qu-est-ce-qu-un-groupe.jpg',
+     texte: "Le registre dit qui possède qui : des ronds reliés entre eux, immobiles. Posées sur la Terre, les mêmes sociétés s'échangent marchandises, achats, services et argent. On suit chaque flux : les marchandises passent par l'entrepôt, les achats par la centrale, l'argent par la trésorerie. Trois petits ronds du registre tiennent le groupe. La question n'est plus combien je détiens, mais par où passe mon groupe."}];
   const TIROIRS = CYCLES.map(([l, nom]) => ({code: l, nom, videos: VIDEOS.filter(v => v.cycle === l)}));
 
   /* ── LA GÉOMÉTRIE DOM 3D, celle de la maquette ── */
