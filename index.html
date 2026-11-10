@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <meta name="description" content="IFC, Informatique Finance Conseil : éditeur de METACUBE, consultant Sage 100 en sous-traitance, connecteurs sur mesure, audit des processus financiers et agents d'intelligence artificielle.">
-<link rel="stylesheet" href="site.css?v=20261024-12">
+<link rel="stylesheet" href="site.css?v=20261110-1">
 </head>
 <body>
 <canvas id="ciel" aria-hidden="true"></canvas>
@@ -41,6 +41,9 @@
     <div class="astre" role="img" aria-label="Emblème IFC : un noyau et ses orbites">
       <div class="orbite"><i></i></div><div class="orbite"><i></i></div><div class="orbite"></div>
       <div class="coeur"></div>
+      <!-- L'ARMOIRE EN SATELLITE (Aurélien, 10/11/2026) : une petite armoire qui court sur l'orbite
+           extérieure du logo ; un clic l'ouvre en grand, par-dessus la page. Elle reste aussi sur la page METACUBE. -->
+      <div class="satellite"><button class="mini-armoire" type="button" aria-label="Ouvrir l'armoire des vidéos"><span class="tiroirs"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="legende">Les vidéos</span></button></div>
     </div>
   </div>
 
@@ -54,6 +57,18 @@
 
 </main>
 
+<div id="voile-armoire" hidden>
+  <div class="voile-cadre" role="dialog" aria-modal="true" aria-label="L'armoire des vidéos">
+    <button class="fermer" type="button" aria-label="Fermer l'armoire">×</button>
+    <div id="armoire" aria-label="L'armoire des vidéos : un tiroir par thème">
+      <div class="ar-scene"><div class="ar-monde"></div></div>
+      <aside class="ar-hud"><div class="ar-tete"><span class="caps">Un tiroir par thème</span><div class="ar-sous">L'armoire des vidéos</div></div><div class="ar-fil"></div><div class="ar-corps"></div>
+        <div class="aide"><span><i class="g"></i>descendre</span><span><i class="d"></i>remonter</span><span>maintenir : tourner</span></div></aside>
+    </div>
+    <p class="mention">Données fictives, raisonnement réel. Les vidéos sont servies par ce site : ni lecteur tiers, ni traceur.</p>
+  </div>
+</div>
+
 <footer>
   <div class="page">
     <span>IFC — Informatique Finance Conseil · SASU au capital de 2 000 € · RCS Rennes 983 987 280</span>
@@ -64,5 +79,21 @@
 <script src="site.js?v=20261024-12"></script>
 <script src="assistant.js?v=2"></script>
 <script src="menu.js?v=1"></script>
+<script src="armoire.js?v=7"></script>
+<script>
+/* L'armoire en surimpression : le satellite l'ouvre ; la croix, Échap ou un clic sur le voile la ferment.
+   À l'ouverture, on redonne sa taille à la scène (elle était cachée, donc mesurée à zéro). */
+(function(){
+  const voile = document.getElementById('voile-armoire'), bouton = document.querySelector('.mini-armoire');
+  if (!voile || !bouton) return;
+  function ouvrir(){ voile.hidden = false; document.body.classList.add('voile-ouvert'); requestAnimationFrame(() => dispatchEvent(new Event('resize'))); voile.querySelector('.fermer').focus(); }
+  function fermer(){ voile.hidden = true; document.body.classList.remove('voile-ouvert'); voile.querySelectorAll('video').forEach(v => v.pause()); bouton.focus(); }
+  bouton.addEventListener('click', ouvrir);
+  voile.querySelector('.fermer').addEventListener('click', fermer);
+  voile.addEventListener('mousedown', e => { if (e.target === voile) fermer(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && !voile.hidden) fermer(); });
+  if (location.hash === '#videos') ouvrir();
+})();
+</script>
 </body>
 </html>
