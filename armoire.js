@@ -33,7 +33,10 @@
      texte: "Ce qui se passe dans le moteur quand il lit une ligne : chaque point est l'un de ses 6 583 neurones, et ce qui s'allume est ce qu'il a réellement activé. Lire le libellé, toucher ce qu'il sait, propager, reconnaître la forme d'une écriture, payer l'effort, décider, puis vérifier par des chemins indépendants. Pour qui veut voir le raisonnement de l'intérieur."},
     {n: 6, cycle: 'K', titre: "Qu'est-ce qu'un groupe ?", duree: '1 min 30',
      fichier: 'videos/qu-est-ce-qu-un-groupe.mp4', image: 'videos/qu-est-ce-qu-un-groupe.jpg',
-     texte: "Le registre dit qui possède qui : des ronds reliés entre eux, immobiles. Posées sur la Terre, les mêmes sociétés s'échangent marchandises, achats, services et argent. On suit chaque flux : les marchandises passent par l'entrepôt, les achats par la centrale, l'argent par la trésorerie. Trois petits ronds du registre tiennent le groupe. La question n'est plus combien je détiens, mais par où passe mon groupe."}];
+     texte: "Le registre dit qui possède qui : des ronds reliés entre eux, immobiles. Posées sur la Terre, les mêmes sociétés s'échangent marchandises, achats, services et argent. On suit chaque flux : les marchandises passent par l'entrepôt, les achats par la centrale, l'argent par la trésorerie. Trois petits ronds du registre tiennent le groupe. La question n'est plus combien je détiens, mais par où passe mon groupe."},
+    {n: 7, cycle: 'L', titre: 'Une écriture fausse', duree: '2 min 30',
+     fichier: 'videos/une-ecriture-fausse.mp4', image: 'videos/une-ecriture-fausse.jpg',
+     texte: "Une facture de 18 400 € : pièce propre, écriture juste, règlement lettré. Dans le dossier tout concorde, parce qu'une même information fausse a été recopiée d'une pièce à l'autre ; erreur ou fraude, peu importe. Les sources extérieures, elles, n'ont rien recopié : le registre, les bases fiscales, la banque, la paie, les achats, la validation, les habitudes du dossier démentent. La norme et le schéma d'écriture disent oui : ils ne regardent que la forme. Le vrai se lit sans effort, à l'infini ; le faux, dans la douleur, et sur un champ fini."}];
   const TIROIRS = CYCLES.map(([l, nom]) => ({code: l, nom, videos: VIDEOS.filter(v => v.cycle === l)}));
 
   /* ── LA GÉOMÉTRIE DOM 3D, celle de la maquette ── */
