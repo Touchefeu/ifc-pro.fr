@@ -1,0 +1,37 @@
+# Publication du site sur GitHub Pages, à chaque envoi sur main.
+# Remplace la publication automatique de GitHub, dont le délai fixe de 10 minutes
+# ne suffisait plus avec les vidéos (« Timeout reached, aborting! »). Ici : 30 minutes.
+# Réglage requis une fois : Settings → Pages → Source : « GitHub Actions ».
+name: Publier le site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploiement
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: 1800000
